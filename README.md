@@ -1,6 +1,6 @@
 # multi-tenant-schema-setup
 
-![image](https://github.com/kritish-dhaubanjar/multi-tenant-schema-setup/assets/25634165/cfb4052b-0a02-40c6-8e0d-a740a43ca714)
+![multi-tenant-schema-setup](https://github.com/kritish-dhaubanjar/multi-tenant-schema-setup/assets/25634165/73b6177b-e650-4231-9814-348ec46bf5a2)
 
 # Table of Contents
 1. [Directory Structure](#directory-structure)
