@@ -17,65 +17,78 @@
 
 <a name="directory-structure"></a>
 
-```
+```bash
 ├── babel.config.json
-├── bootstrap                                                         # bootstrap with existing trayt-api
-│   └── app.ts
-├── config                                                            # application wide configurations
-│   ├── database.config.ts
-│   ├── migration.config.ts
-│   └── signer.config.ts
-├── constants                                                         # application wide constants
-│   ├── database
-│   │   ├── schemas.constant.ts
-│   │   └── tables.constant.ts
-│   └── errors.constant.ts
-├── controllers                                                       # http contollers
-├── database                                                          # database migrations, seeders, stubs
-│   ├── migrations
-│   │   └── schemas
-│   │       ├── public
-│   │       └── trayt
-│   │           └── 20240331080833_create_organizations_table.ts
-│   ├── seeders
-│   │   ├── public
-│   │   └── trayt
-│   │       └── 20240402182202_organizations.seeder.ts
-│   └── stubs
-│       ├── migration.stub
-│       └── seeder.stub
-├── env                                                               # application wide environment variables
-│   └── index.ts
-├── errors                                                            # error categories
-│   ├── en_US.errors.ts
-│   └── errors.ts
+├── bootstrap                                                           # bootstrap with existing api
+│   └── app.ts
+├── config                                                              # application wide configurations
+│   ├── database.config.ts
+│   ├── migration.config.ts
+│   └── signer.config.ts
+├── constants                                                           # application wide constants
+│   ├── database
+│   │   ├── schemas.constant.ts
+│   │   └── tables.constant.ts
+│   ├── errors.constant.ts
+│   └── headers.constant.ts
+├── controllers                                                         # http controllers
+├── database                                                            # database migrations, seeders, stubs
+│   ├── migrations
+│   │   ├── common
+│   │   │   └── 20240331080833_create_organizations_table.ts
+│   │   └── schemas
+│   │       ├── ne
+│   │       ├── public
+│   │       │   ├── 20240328181919_create_TX_schema.ts
+│   │       │   ├── 20240328182153_create_VT_schemas.ts
+│   │       │   ├── 20240328210433_create_NE_schema.ts
+│   │       │   └── 20240401174007_create_tenants_table.ts
+│   │       ├── tx
+│   │       └── vt
+│   ├── seeders
+│   │   ├── ne
+│   │   ├── public
+│   │   │   └── 20240402060517_tenants.seeder.ts
+│   │   ├── tx
+│   │   │   └── 20240402182202_organizations.seeder.ts
+│   │   └── vt
+│   └── stubs
+│       ├── migration.stub
+│       └── seeder.stub
+├── env                                                                 # application wide environment variables
+│   └── index.ts
+├── errors                                                              # application wide handled exceptions
+│   ├── en_US.errors.ts
+│   └── errors.ts
 ├── index.ts
 ├── jest.config.ts
-├── middlewares                                                       # http middlewares
-│   └── error.middleware.ts
-├── models                                                            # ORM models
-│   ├── BaseModel.ts
-│   ├── index.ts
-│   └── Organization.model.ts
+├── middlewares                                                         # http middlewares
+│   ├── error.middleware.ts
+│   └── header.middleware.ts
+├── models                                                              # DB functional models
+│   ├── index.ts
+│   ├── Model.ts
+│   ├── Organization.model.ts
+│   └── Tenant.model.ts
 ├── package.json
-├── policies
-├── prompts                                                           # prompts for migrations, seeders
-│   └── database
-│       ├── migrate.make.ts
-│       ├── seed.make.ts
-│       └── seed.run.ts
-├── provider                                                          # service providers
-│   ├── database.provider.ts
-│   └── storage.provider.ts
+├── prompts                                                             # prompts for migrations, seeders
+│   └── database
+│       ├── migrate.make.ts
+│       ├── seed.make.ts
+│       └── seed.run.ts
+├── providers                                                           # service providers
+│   ├── database.provider.ts
+│   └── storage.provider.ts
 ├── README.md
-├── resources                                                         # external resources
-│   └── global-bundle.pem
-├── services                                                          # http services
-├── controllers                                                       # http controllers
-├── utilities                                                         # utilities
-│   ├── object.test.ts
-│   └── object.ts
-└── validators                                                        # http validators
+├── resources                                                           # external resources
+│   └── global-bundle.pem
+├── routes                                                              # http routes
+├── schemas                                                             # object schemas
+│   └── header.schema.ts
+├── services                                                            # http services
+└── utilities                                                           # utilities
+    ├── object.test.ts
+    └── object.ts
 ```
 
 ### 2. Environment Variables (.env)
@@ -95,14 +108,14 @@ DB_HOST=localhost
 DB_SSL=
 DB_PORT=5432
 DB_REGION=us-west-2
-DB_DATABASE=trayt_db
-DB_USER=trayt_user
-DB_PASSWORD=trayt_password
+DB_DATABASE=
+DB_USER=
+DB_PASSWORD=
 DB_MIN_POOL_SIZE=1
 DB_MAX_POOL_SIZE=2
 DB_CONNECTION_TIMEOUT_MILLISECONDS=10000
 
-DB_MIGRATION_SCHEMA_NAME=trayt
+DB_MIGRATION_SCHEMA_NAME=public
 ```
 
 ### 3. Database Migrations
