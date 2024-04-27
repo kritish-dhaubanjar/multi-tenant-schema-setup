@@ -1,4 +1,6 @@
-# backend-with-sql
+# multi-tenant-schema-setup
+
+![image](https://github.com/kritish-dhaubanjar/multi-tenant-schema-setup/assets/25634165/cfb4052b-0a02-40c6-8e0d-a740a43ca714)
 
 # Table of Contents
 1. [Directory Structure](#directory-structure)
