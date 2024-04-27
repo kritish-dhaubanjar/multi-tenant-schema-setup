@@ -71,7 +71,8 @@
 ├── resources                                                         # external resources
 │   └── global-bundle.pem
 ├── services                                                          # http services
-├── utils                                                             # utilities
+├── controllers                                                       # http controllers
+├── utilities                                                         # utilities
 │   ├── object.test.ts
 │   └── object.ts
 └── validators                                                        # http validators
