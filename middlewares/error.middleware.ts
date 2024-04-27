@@ -1,7 +1,7 @@
 import Joi from 'joi'
 import type { Request, Response, NextFunction } from 'express'
 
-import TraytError from '../errors/errors'
+import Exception from '../errors/errors'
 
 export function errorHandler(
   error: Error,
@@ -13,7 +13,7 @@ export function errorHandler(
     return response.status(422).json({ error: error.details, originalUrl: request.originalUrl })
   }
 
-  if (error instanceof TraytError) {
+  if (error instanceof Exception) {
     return response.status(error.status).json({ error, originalUrl: request.originalUrl })
   }
 

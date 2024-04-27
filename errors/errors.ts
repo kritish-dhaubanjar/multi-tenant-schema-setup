@@ -1,6 +1,6 @@
 import en_US from './en_US.errors'
 
-export default class TraytError extends Error {
+export default class Exception extends Error {
   public code: number
   public status: number
   public details: string

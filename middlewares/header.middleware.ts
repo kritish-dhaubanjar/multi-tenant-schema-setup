@@ -5,7 +5,7 @@ import storage from '../providers/storage.provider'
 import { headerSchema } from '../schemas/header.schema'
 import { HEADERS } from '../constants/headers.constant'
 
-import TraytError from '../errors/errors'
+import Exception from '../errors/errors'
 import { ExpectationException } from '../constants/errors.constant'
 
 export async function validateHeaders(request: Request, _response: Response, next: NextFunction) {
@@ -20,7 +20,7 @@ export async function validateHeaders(request: Request, _response: Response, nex
     const tenant = await Tenant.get(tenantId)
 
     if (!tenant) {
-      throw new TraytError(ExpectationException, 1000)
+      throw new Exception(ExpectationException, 1000)
     }
 
     const store = new Map()
