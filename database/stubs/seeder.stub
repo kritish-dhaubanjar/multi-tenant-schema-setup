@@ -1,0 +1,15 @@
+import { Knex } from "knex";
+import { TABLES } from '../../../constants/database/tables.constant'
+import { DB_SCHEMAS } from '../../../constants/database/schemas.constant'
+
+export async function seed(knex: Knex): Promise<void> {
+  // Deletes ALL existing entries
+  await knex.withSchema(schema).table("table_name").del()
+
+  // Inserts seed entries
+  await knex.withSchema(schema).table("table_name").insert([
+    { id: 1, colName: "rowValue1" },
+    { id: 2, colName: "rowValue2" },
+    { id: 3, colName: "rowValue3" },
+  ]);
+};

@@ -1,0 +1,34 @@
+{
+  "name": "backend-with-sql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "knex": "DB_MIGRATION_SCHEMA_NAME=$(read -p 'DB_MIGRATION_SCHEMA_NAME: ' var && echo $var) tsx ../node_modules/knex/bin/cli.js --knexfile=config/database.config.ts",
+    "migrate:make": "tsx ./prompts/database/migrate.make.ts",
+    "seed:make": "tsx ./prompts/database/seed.make.ts",
+    "seed:run": "tsx ./prompts/database/seed.run.ts",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "knex": "^3.1.0",
+    "lodash": "^4.17.21",
+    "pg": "^8.11.3",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.4",
+    "@babel/preset-env": "^7.24.4",
+    "@babel/preset-typescript": "^7.24.1",
+    "@types/inquirer": "^9.0.7",
+    "@types/lodash": "^4.17.0",
+    "@types/pg": "^8.11.4",
+    "babel-jest": "^29.7.0",
+    "inquirer": "^9.2.16",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2"
+  }
+}
