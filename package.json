@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
+    "dev": "tsx index.ts",
     "knex": "DB_MIGRATION_SCHEMA_NAME=$(read -p 'DB_MIGRATION_SCHEMA_NAME: ' var && echo $var) tsx ../node_modules/knex/bin/cli.js --knexfile=config/database.config.ts",
     "migrate:make": "tsx ./prompts/database/migrate.make.ts",
     "seed:make": "tsx ./prompts/database/seed.make.ts",
@@ -31,6 +32,7 @@
     "babel-jest": "^29.7.0",
     "inquirer": "^9.2.16",
     "ts-jest": "^29.1.2",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "tsx": "^4.23.15"
   }
 }
