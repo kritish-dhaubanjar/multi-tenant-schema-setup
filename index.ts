@@ -4,12 +4,14 @@ import '@/bootstrap/app'
 
 import env from '@/env'
 import routes from '@/routes'
+import healthzRoutes from '@/routes/healthz.route'
 import { errorHandler } from '@/middlewares/error.middleware'
 
 const app = express()
 
 app.use(express.json())
 
+app.use('/healthz', healthzRoutes)
 app.use('/api', routes)
 
 app.use(errorHandler)
