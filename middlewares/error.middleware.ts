@@ -1,4 +1,4 @@
-import Joi from 'joi'
+import { ZodError } from 'zod'
 import type { Request, Response, NextFunction } from 'express'
 
 import Exception from '@/errors/errors'
@@ -9,8 +9,8 @@ export function errorHandler(
   response: Response,
   _next: NextFunction
 ) {
-  if (error instanceof Joi.ValidationError) {
-    return response.status(422).json({ error: error.details, originalUrl: request.originalUrl })
+  if (error instanceof ZodError) {
+    return response.status(422).json({ error: error.issues, originalUrl: request.originalUrl })
   }
 
   if (error instanceof Exception) {
