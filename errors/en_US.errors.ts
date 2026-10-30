@@ -1,14 +1,6 @@
-import * as Exceptions from '../constants/errors.constant'
+import * as Exceptions from '@/constants/errors.constant'
 
 export default {
-  [Exceptions.ExpectationException]: {
-    1000: {
-      status: 417,
-      message: '417 Expectation Failed',
-      details:
-        'The server cannot meet the requirements of the Expect request-header X-TENANT-ID field.',
-    },
-  },
   [Exceptions.ModelNotFoundException]: {
     2000: {
       status: 404,

@@ -4,12 +4,12 @@ import { Signer } from '@aws-sdk/rds-signer'
 import type { Knex } from 'knex'
 import { snakeCase } from 'lodash'
 
-import env from '../env'
-import signerConfig from './signer.config'
-import MigrationSource from './migration.config'
+import env from '@/env'
+import signerConfig from '@/config/signer.config'
+import MigrationSource from '@/config/migration.config'
 
-import { DB_SCHEMAS } from '../constants/database/schemas.constant'
-import { convertObjectKeysToCamelCase } from '../utilities/object'
+import { DB_SCHEMAS } from '@/constants/database/schemas.constant'
+import { convertObjectKeysToCamelCase } from '@/utilities/object'
 
 export default {
   client: env.DB_CLIENT,
@@ -20,7 +20,10 @@ export default {
     database: env.DB_DATABASE,
     connectTimeout: env.DB_CONNECTION_TIMEOUT_MILLISECONDS,
     ssl: env.DB_SSL
-      ? { rejectUnauthorized: false, ca: path.resolve('../resources/global-bundle.pem') }
+      ? {
+          rejectUnauthorized: false,
+          ca: path.resolve(__dirname, '../resources/global-bundle.pem'),
+        }
       : false,
     password: () => env.DB_PASSWORD || new Signer(signerConfig).getAuthToken(),
   },

@@ -2,8 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { Knex } from 'knex'
 
-import env from '../env'
-import { DB_SCHEMAS } from '../constants/database/schemas.constant'
+import env from '@/env'
 
 export default class MigrationSource implements Knex.MigrationSource<string> {
   private directories: string[]
@@ -16,12 +15,6 @@ export default class MigrationSource implements Knex.MigrationSource<string> {
    */
   constructor(migrationSources: string[]) {
     this.directories = migrationSources.filter((directory) => {
-      const isPublic = env.DB_MIGRATION_SCHEMA_NAME === DB_SCHEMAS.public
-
-      if (isPublic) {
-        return directory.endsWith(DB_SCHEMAS.public)
-      }
-
       return (
         directory.endsWith(this.sharedSchemaDirname) ||
         directory.endsWith(env.DB_MIGRATION_SCHEMA_NAME)

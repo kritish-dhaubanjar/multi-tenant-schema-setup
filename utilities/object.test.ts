@@ -1,4 +1,4 @@
-import { convertObjectKeysToCamelCase } from './object'
+import { convertObjectKeysToCamelCase } from '@/utilities/object'
 
 describe('convertObjectKeysToCamelCase', () => {
   it('should convert all object keys to camel case', () => {

@@ -1,10 +1,16 @@
-import { z } from 'zod'
+import { existsSync } from 'fs'
 import path from 'path'
 import dotenv from 'dotenv'
+import { z } from 'zod'
 
-dotenv.config({ path: path.join(__dirname, '../../.env') })
+const envFile = [path.resolve(__dirname, '../.env'), path.resolve(__dirname, '../../.env')].find(
+  (candidate) => existsSync(candidate)
+)
+
+dotenv.config(envFile ? { path: envFile } : undefined)
 
 const environmentSchema = z.object({
+  APP_PORT: z.coerce.number(),
   DB_HOST: z.string(),
   DB_PORT: z.coerce.number(),
   DB_REGION: z.string(),

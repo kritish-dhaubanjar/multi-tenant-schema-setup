@@ -1,3 +1,2 @@
-export { default as Model } from './BaseModel'
-export { default as Tenant } from './Tenant.model'
-export { default as Organization } from './Organization.model'
+export { default as Model } from '@/models/BaseModel'
+export { default as Organization } from '@/models/Organization.model'

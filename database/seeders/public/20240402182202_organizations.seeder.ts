@@ -1,12 +1,12 @@
 import { Knex } from 'knex'
-import { TABLES } from '../../../constants/database/tables.constant'
-import { DB_SCHEMAS } from '../../../constants/database/schemas.constant'
+import { TABLES } from '@/constants/database/tables.constant'
+import { DB_SCHEMAS } from '@/constants/database/schemas.constant'
 
 export async function seed(knex: Knex): Promise<void> {
-  await knex.withSchema(DB_SCHEMAS.TX).table(TABLES.organizations).del()
+  await knex.withSchema(DB_SCHEMAS.public).table(TABLES.organizations).del()
 
   await knex
-    .withSchema(DB_SCHEMAS.TX)
+    .withSchema(DB_SCHEMAS.public)
     .table(TABLES.organizations)
     .insert([
       {

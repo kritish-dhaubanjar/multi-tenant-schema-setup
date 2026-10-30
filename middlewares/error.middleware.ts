@@ -1,7 +1,7 @@
 import Joi from 'joi'
 import type { Request, Response, NextFunction } from 'express'
 
-import Exception from '../errors/errors'
+import Exception from '@/errors/errors'
 
 export function errorHandler(
   error: Error,

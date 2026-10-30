@@ -1,7 +1,7 @@
 import inquirer from 'inquirer'
 
-import knex from '../../providers/database.provider'
-import { DB_SCHEMAS } from '../../constants/database/schemas.constant'
+import knex from '@/providers/database.provider'
+import { DB_SCHEMAS } from '@/constants/database/schemas.constant'
 
 async function make() {
   const schemas = Object.values(DB_SCHEMAS)

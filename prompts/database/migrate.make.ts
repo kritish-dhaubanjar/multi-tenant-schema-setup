@@ -1,7 +1,7 @@
 import inquirer from 'inquirer'
 
-import knex from '../../providers/database.provider'
-import { DB_SCHEMAS } from '../../constants/database/schemas.constant'
+import knex from '@/providers/database.provider'
+import { DB_SCHEMAS } from '@/constants/database/schemas.constant'
 
 const sharedSchemaDirname: string = 'common'
 

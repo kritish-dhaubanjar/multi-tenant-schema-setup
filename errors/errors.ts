@@ -1,4 +1,4 @@
-import en_US from './en_US.errors'
+import en_US from '@/errors/en_US.errors'
 
 export default class Exception extends Error {
   public code: number

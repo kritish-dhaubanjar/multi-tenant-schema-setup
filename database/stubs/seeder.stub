@@ -1,6 +1,6 @@
 import { Knex } from "knex";
-import { TABLES } from '../../../constants/database/tables.constant'
-import { DB_SCHEMAS } from '../../../constants/database/schemas.constant'
+import { TABLES } from '@/constants/database/tables.constant'
+import { DB_SCHEMAS } from '@/constants/database/schemas.constant'
 
 export async function seed(knex: Knex): Promise<void> {
   // Deletes ALL existing entries

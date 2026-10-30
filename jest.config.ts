@@ -14,6 +14,10 @@ export default {
   // Specifies the preset to be used for TypeScript Jest configuration
   preset: 'ts-jest',
 
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/$1',
+  },
+
   // Specifies the test environment to be used (in this case, Node.js)
   testEnvironment: 'node',
 }

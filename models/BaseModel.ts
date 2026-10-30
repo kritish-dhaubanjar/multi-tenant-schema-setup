@@ -1,6 +1,5 @@
 import { Knex } from 'knex'
-import storage from '../providers/storage.provider'
-import { DB_SCHEMAS } from '../constants/database/schemas.constant'
+import { DB_SCHEMAS } from '@/constants/database/schemas.constant'
 
 export enum SORT {
   ASC = 'asc',
@@ -46,13 +45,7 @@ export default class Model {
   }
 
   public static getSchema(): DB_SCHEMAS {
-    if (this.schema) {
-      return this.schema
-    }
-
-    const store = storage.getStore() as Map<string, string>
-
-    return store.get('schema') as DB_SCHEMAS
+    return this.schema
   }
 
   public static queryBuilder(
